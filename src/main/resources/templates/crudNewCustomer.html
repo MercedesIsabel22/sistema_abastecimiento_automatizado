@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Proyecto Cibertec HIB</title>
+    <link href="../css/estilos_gestion.css" rel="stylesheet"/>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+    />
+</head>
+
+<!-- Menú - Barra superior  -->
+<div th:replace="header_fragment :: header"></div>
+
+<body>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">REGISTRAR CLIENTE</h2>
+    <div class="card-body">
+        <form th:action="@{/crud_ejecutar_create_customer}" th:object="${PaqueteC}" method="post">
+            <div class="mb-3 text-center">
+                <label class="form-label font-weight-bold" style="font-weight: bold;">Ruc | Dni</label>
+                <input type="text" class="form-control mx-auto" style="width: 30%; text-align: center;"
+                       th:field="*{rucDni}">
+            </div>
+            <div class="mb-3 text-center">
+                <label class="form-label font-weight-bold" style="font-weight: bold;"> Razón social | Nombre </label>
+                <input type="text" class="form-control mx-auto" style="width: 30%; text-align: center;"
+                       th:field="*{companyName}">
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('razonsocial')}"
+                       th:errors="*{companyName}"></small>
+
+            </div>
+            <div class="mb-3 text-center">
+                <label class="form-label font-weight-bold" style="font-weight: bold;">Dirección</label>
+                <input type="text" class="form-control mx-auto" style="width: 30%; text-align: center;"
+                       th:field="*{address}">
+            </div>
+            <div class="mb-3 text-center">
+                <label class="form-label font-weight-bold" style="font-weight: bold;">Teléfono</label>
+                <input type="text" class="form-control mx-auto" style="width: 30%; text-align: center;"
+                       th:field="*{phone}">
+            </div>
+            <div class="text-center">
+                <input type="submit" class="btn btn-dark mt-2" value="Crear Cliente">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+<!-- footer  -->
+<div th:replace="footer_fragment :: footer"></div>
+
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"
+></script>
+</html>

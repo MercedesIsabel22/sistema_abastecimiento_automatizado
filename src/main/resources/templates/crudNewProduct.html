@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Proyecto Cibertec HIB</title>
+    <link href="../css/estilos_gestion.css" rel="stylesheet"/>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+    />
+</head>
+
+<!-- Menú - Barra superior  -->
+<div th:replace="header_fragment :: header"></div>
+
+<body>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">NUEVO PRODUCTO</h2>
+    <div class="card-body">
+        <form th:action="@{/crud_ejecutar_create_product}" th:object="${PaqueteP}" method="post">
+            <div class="mb-3 text-center">
+                <label class="form-label font-weight-bold" style="font-weight: bold;"> Tipo Producto </label>
+                <select class="form-control mx-auto" style="width: 30%; text-align: center;" th:field="*{productType}">
+                    <option th:each="option2 : ${paquetetp}" th:value="${option2.idTypeProduct}"
+                            th:text="${option2.amount}"></option>
+                </select>
+            </div>
+            <div class="mb-3 text-center">
+                <label class="form-label font-weight-bold" style="font-weight: bold;"> Proveedor </label>
+                <select class="form-control mx-auto" style="width: 30%; text-align: center;" th:field="*{supplier}">
+                    <option th:each="option : ${PaquetePv}" th:value="${option.idSupplier}"
+                            th:text="${option.companyName}"></option>
+                </select>
+            </div>
+            <div class="mb-3 text-center">
+                <label class="form-label font-weight-bold" style="font-weight: bold;">Nombre del Producto</label>
+                <input type="text" class="form-control mx-auto" style="width: 30%; text-align: center;" id="name"
+                       th:field="*{description}">
+            </div>
+            <div class="mb-3 text-center">
+                <label class="form-label font-weight-bold" style="font-weight: bold;">Precio</label>
+                <input type="number" step="0.01" class="form-control mx-auto" style="width: 30%; text-align: center;"
+                       th:field="*{price}">
+            </div>
+            <div class="mb-3 text-center">
+                <label class="form-label font-weight-bold" style="font-weight: bold;">Stock Minimo</label>
+                <input type="number" class="form-control mx-auto" style="width: 30%; text-align: center;"
+                       th:field="*{stockMin}">
+            </div>
+            <div class="mb-3 text-center">
+                <label class="form-label font-weight-bold" style="font-weight: bold;">Stock Maximo</label>
+                <input type="number" class="form-control mx-auto" style="width: 30%; text-align: center;"
+                       th:field="*{stockMax}">
+            </div>
+            <div class="text-center">
+                <input type="submit" class="btn btn-dark mt-2" value="Crear Producto">
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+
+<!-- footer  -->
+<div th:replace="footer_fragment :: footer"></div>
+
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"
+></script>
+</html>

@@ -1,0 +1,145 @@
+		  body, html {
+                    height: 100%;
+                    margin: 0;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    overflow: hidden;
+                }
+
+                #contenedor {
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                aside {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: 1;
+                    background: rgba(255, 255, 255, 0.9);
+                    padding: 30px 40px;
+                    border-radius: 10px;
+                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+                    text-align: center;
+                    width: 380px;
+                    max-width: 90%;
+                    transition: all 0.3s ease;
+                }
+
+                aside:hover {
+                    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+                }
+
+                .logo {
+                    width: 120px;
+                    margin-bottom: 15px;
+                }
+
+                p {
+                    color: #18215d;
+                    font-size: 18px;
+                    margin-bottom: 20px;
+                }
+
+                p1 {
+                    display: block;
+                    color: #18215d;
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                }
+
+                section {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: 0;
+                }
+
+                section img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    filter: brightness(0.9);
+                }
+
+                section::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(135deg, rgba(24, 33, 93, 0.7), rgba(230, 126, 34, 0.4));
+                    z-index: 1;
+                }
+
+                form {
+                    text-align: left;
+                }
+
+                .form-control {
+                    padding: 12px;
+                    margin-bottom: 15px;
+                    border: 1px solid #e2e8f0;
+                    border-radius: 6px;
+                    transition: all 0.3s ease;
+                }
+
+                .form-control:focus {
+                    border-color: #E67E22;
+                    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.2);
+                    outline: none;
+                }
+
+                .btn-primary {
+                    background-color: #FF6F00;
+                    border-color: #FF6F00;
+                    padding: 12px;
+                    font-weight: 600;
+                    width: 100%;
+                    margin-top: 10px;
+                    transition: all 0.3s ease;
+                }
+
+                .btn-primary:hover {
+                    background-color: #E65100;
+                    border-color: #E65100;
+                    transform: translateY(-2px);
+                    box-shadow: 0 5px 15px rgba(230, 126, 34, 0.3);
+                }
+
+                a {
+                    color: #FF6F00;
+                    text-decoration: none;
+                    transition: color 0.3s;
+                    font-size: 14px;
+                }
+
+                a:hover {
+                    color: #E65100;
+                    text-decoration: underline;
+                }
+
+                .text-danger {
+                    color: #e74c3c;
+                    font-size: 12px;
+                    margin-bottom: 10px;
+                    display: block;
+                }
+
+                .footer-links {
+                    margin-top: 15px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                }
+
+                @media (max-width: 576px) {
+                    aside {
+                        padding: 25px;
+                        width: 320px;
+                    }
+                }
